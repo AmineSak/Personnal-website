@@ -1,10 +1,13 @@
 import React from "react";
+import Image from "next/image";
+import Avatar from "@/public/assets/images/avatar.jpg";
+import ThemeToggle from "./ui/theme-toggle";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
   return (
-    <div className="navbar bg-base-100 my-10 px-10">
+    <div className="navbar mt-10 bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,12 +49,12 @@ const Navbar = (props: Props) => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <ThemeToggle />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
+            <a>Home</a>
           </li>
           <li>
             <details>
@@ -67,12 +70,12 @@ const Navbar = (props: Props) => {
             </details>
           </li>
           <li>
-            <a>Item 3</a>
+            <a>Portfolio</a>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <button className="btn btn-primary btn-outline">Get in touch</button>
       </div>
     </div>
   );

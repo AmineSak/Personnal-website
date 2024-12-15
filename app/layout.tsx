@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: "Amine Sakouhi",
@@ -13,10 +13,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="cupcake">
-      <body className="flex-col justify-center items-center">
-        <Navbar />
-        <div>{children}</div>
+    <html lang="en" data-theme="light">
+      <body>
+        <div className="main">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );
