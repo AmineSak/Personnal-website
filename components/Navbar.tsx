@@ -1,6 +1,4 @@
-import React from "react";
-import Image from "next/image";
-import Avatar from "@/public/assets/images/avatar.jpg";
+"use client";
 import ThemeToggle from "./ui/theme-toggle";
 
 type Props = {};
