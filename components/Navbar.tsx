@@ -5,7 +5,7 @@ type Props = {};
 
 const Navbar = (props: Props) => {
   return (
-    <div className="navbar mt-10 bg-base-100">
+    <div className="navbar sticky top-0 z-20 shadow-md rounded-lg mt-10 bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
