@@ -6,12 +6,19 @@ import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-van
 import { useState } from "react";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import PromptTemplate from "@/components/prompt-template";
+import Footer from "@/components/footer";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [userInput, setUserInput] = useState("");
   const [response, setResponse] = useState("");
   const [key, setKey] = useState(0);
+  const placeholders: string[] = [
+    "Proudest achievement ?",
+    "Favorite movie ?",
+    "Favorite sport ?",
+    "Favorite language ?",
+  ];
 
   const handleChange = (e: any) => {
     e.preventDefault();
@@ -44,7 +51,7 @@ export default function Home() {
     >
       <div
         id="home"
-        className="flex-col justify-center content-center mx-auto overflow-hidden px-5 sm:px-10 w-full"
+        // className="flex-col justify-center content-center mx-auto overflow-hidden px-5 sm:px-10 w-full"
       >
         <div className="flex justify-between border-opacity-50 gap-[40px] items-center mt-10">
           <p className="text-lg text-left ">
@@ -64,12 +71,15 @@ export default function Home() {
           />
         </div>
         <div className="divider divider-neutral divider-vertical my-10" />
-        <h1 className="text-2xl font-bold"> Ask AI </h1>
-        <PlaceholdersAndVanishInput
-          placeholders={["txt", "baar"]}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
+        <h1 className="text-2xl font-bold"> Ask AI about me </h1>
+        <div className="mt-8">
+          <PlaceholdersAndVanishInput
+            placeholders={placeholders}
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        </div>
+
         {isLoading && (
           <span className="loading text-[oklch(var(--p))] loading-dots loading-md"></span>
         )}
@@ -79,6 +89,15 @@ export default function Home() {
           className="mt-10 w-full"
         />
       </div>
+      <div id="experience" className="">
+        <h1 className="text-2xl font-bold mt-8">Experience</h1>
+      </div>
+      <div className="divider divider-neutral divider-vertical my-10" />
+      <div id="projects" className="">
+        <h1 className="text-2xl font-bold">Projects</h1>
+      </div>
+      <div className="divider divider-neutral divider-vertical my-10" />
+      <Footer />
     </main>
   );
 }

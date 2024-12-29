@@ -220,7 +220,7 @@ export function PlaceholdersAndVanishInput({
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="text-[oklch(var(--p))] h-4 w-4"
+          className="text-primary h-4 w-4"
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <motion.path
