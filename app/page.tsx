@@ -2,13 +2,14 @@
 import Image from "next/image";
 import avatar from "@/public/assets/images/1.jpg";
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-
+import PromptTemplate from "@/components/prompt-template";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [userInput, setUserInput] = useState("");
-  const [response, setResponse] = useState("");
+  const [response, setResponse] = useState("Init");
+  const [key, setKey] = useState(0);
   const [showResponse, setShowResponse] = useState(false);
 
   const handleChange = (e: any) => {
@@ -22,11 +23,11 @@ export default function Home() {
       setIsLoading(true);
       const res = await fetch("api/ask-ai", {
         method: "POST",
-        body: JSON.stringify({ question: userInput }),
+        body: JSON.stringify({ question: PromptTemplate(userInput) }),
       });
       const data = await res.json();
       setResponse(data.answer);
-      console.log(data.answer);
+      setKey((prev) => prev + 1);
     } catch (error) {
       console.error("Error:", error);
       setResponse("Sorry, something went wrong. Please try again.");
@@ -36,17 +37,10 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    if (response) {
-      setShowResponse(true);
-    } else {
-      setShowResponse(false);
-    }
-  }, [response]);
   return (
     <main
       className="flex-col justify-center
-     content-center mx-auto overflow-hidden px-5 sm:px-10 "
+     content-center mx-auto overflow-hidden px-5 sm:px-10 w-full"
     >
       <div className="flex justify-between border-opacity-50 gap-[40px] items-center mt-10">
         <p className="text-lg text-left ">
@@ -72,10 +66,10 @@ export default function Home() {
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
-      {isLoading && <div>Loading...</div>}
-      {showResponse && (
-        <TextGenerateEffect words={response} className="mt-10" />
+      {isLoading && (
+        <span className="loading text-[oklch(var(--p))] loading-dots loading-md"></span>
       )}
+      <TextGenerateEffect key={key} words={response} className="mt-10 w-full" />
     </main>
   );
 }

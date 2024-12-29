@@ -63,5 +63,5 @@
 }
 
 .main {
-  @apply flex justify-center items-center flex-col mx-auto max-w-7xl sm:px-16 px-3;
+  @apply flex justify-center items-center flex-col mx-auto max-w-5xl sm:px-16 px-3;
 }
