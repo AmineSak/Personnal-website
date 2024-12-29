@@ -1,5 +1,6 @@
 "use client";
 import ThemeToggle from "./ui/theme-toggle";
+import Link from "next/link";
 
 type Props = {};
 
@@ -52,7 +53,7 @@ const Navbar = (props: Props) => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Home</a>
+            <Link href="#home">Home</Link>
           </li>
           <li>
             <details>
@@ -68,12 +69,14 @@ const Navbar = (props: Props) => {
             </details>
           </li>
           <li>
-            <a>Portfolio</a>
+            <Link href="#experience">Experience</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-primary btn-outline">Get in touch</button>
+        <a download="Amine_Sakouhi_resume.pdf" href="/resume.pdf">
+          <button className="btn btn-primary btn-outline">Get resume</button>
+        </a>
       </div>
     </div>
   );
