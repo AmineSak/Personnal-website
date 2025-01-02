@@ -13,12 +13,7 @@ export default function Home() {
   const [userInput, setUserInput] = useState("");
   const [response, setResponse] = useState("");
   const [key, setKey] = useState(0);
-  const placeholders: string[] = [
-    "Proudest achievement ?",
-    "Favorite movie ?",
-    "Favorite sport ?",
-    "Favorite language ?",
-  ];
+  const placeholders: string[] = [""];
 
   const handleChange = (e: any) => {
     e.preventDefault();
@@ -27,6 +22,8 @@ export default function Home() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setUserInput(e.target.value);
+
     try {
       setIsLoading(true);
       const res = await fetch("api/ask-ai", {
@@ -54,6 +51,13 @@ export default function Home() {
         // className="flex-col justify-center content-center mx-auto overflow-hidden px-5 sm:px-10 w-full"
       >
         <div className="flex justify-between border-opacity-50 gap-[40px] items-center mt-10">
+          <Image
+            alt="Profile-avatar"
+            src={avatar}
+            width={200}
+            height={200}
+            className="card"
+          />
           <p className="text-lg text-left ">
             Welcome to my personnal website! <br />
             How do I find you today? <br />
@@ -62,41 +66,36 @@ export default function Home() {
             <br /> When I'm not on my laptop, I enjoy doing calisthenics and a
             small touch of powerlifting
           </p>
-          <Image
-            alt="Profile-avatar"
-            src={avatar}
-            width={200}
-            height={200}
-            className="card"
-          />
         </div>
-        <div className="divider divider-neutral divider-vertical my-10" />
-        <h1 className="text-2xl font-bold"> Ask AI about me </h1>
-        <div className="mt-8">
+
+        <div className="flex-col mt-8 gap-3 items-center">
+          <h1 className="text-2xl font-bold text-center mb-8">
+            {" "}
+            Ask AI about me{" "}
+          </h1>
           <PlaceholdersAndVanishInput
             placeholders={placeholders}
             onChange={handleChange}
             onSubmit={handleSubmit}
           />
-        </div>
 
-        {isLoading && (
-          <span className="loading text-[oklch(var(--p))] loading-dots loading-md"></span>
-        )}
-        <TextGenerateEffect
-          key={key}
-          words={response}
-          className="mt-10 w-full"
-        />
+          {isLoading && (
+            <span className="loading text-primary loading-dots loading-md"></span>
+          )}
+          <TextGenerateEffect
+            key={key}
+            words={response}
+            className="mt-10 w-full"
+          />
+        </div>
       </div>
       <div id="experience" className="">
-        <h1 className="text-2xl font-bold mt-8">Experience</h1>
+        <h1 className="text-2xl font-bold text-center mb-8">Experience</h1>
       </div>
-      <div className="divider divider-neutral divider-vertical my-10" />
       <div id="projects" className="">
-        <h1 className="text-2xl font-bold">Projects</h1>
+        <h1 className="text-2xl font-bold text-center mb-8">Projects</h1>
       </div>
-      <div className="divider divider-neutral divider-vertical my-10" />
+
       <Footer />
     </main>
   );
