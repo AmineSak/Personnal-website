@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="card bg-base-100 w-96 shadow-xl">
+    <div className="card bg-base-100 w-90 shadow-xl">
       <figure>
         <Image src={project.image} alt={project.description} />
       </figure>

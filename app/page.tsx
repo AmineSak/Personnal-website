@@ -93,7 +93,7 @@ export default function Home() {
         </div>
 
         <div className="flex-col mt-8 gap-3 items-center">
-          <h1 className="text-2xl font-bold text-center mb-8">
+          <h1 className="text-2xl font-bold text-primary text-center mb-8">
             {" "}
             Ask AI about me{" "}
           </h1>
@@ -126,14 +126,26 @@ export default function Home() {
         </div>
       </div>
       <div id="experience" className="">
-        <h1 className="text-2xl font-bold text-center mb-8">Experience</h1>
+        <h1 className="text-2xl font-bold text-center text-primary mb-8">
+          Experience
+        </h1>
         <Timeline />
       </div>
       <div id="projects" className="">
-        <h1 className="text-2xl font-bold text-center mb-8">Projects</h1>
-        {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
-        ))}
+        <h1 className="text-2xl font-bold text-primary text-center mb-8">
+          Projects
+        </h1>
+        <div className="grid justify-center grid-cols-1 md:grid-cols-2 gap-4 w-full mb-10">
+          {projects.map((project, index) => (
+            <>
+              <ProjectCard key={index} project={project} />
+              <ProjectCard key={index + 2} project={project} />
+              <ProjectCard key={index + 4} project={project} />
+              <ProjectCard key={index + 9} project={project} />
+              <ProjectCard key={index + 1} project={project} />
+            </>
+          ))}
+        </div>
       </div>
     </main>
   );
