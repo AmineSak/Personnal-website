@@ -6,7 +6,7 @@ import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-van
 import { useState } from "react";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import PromptTemplate from "@/components/prompt-template";
-import Footer from "@/components/footer";
+import Timeline from "@/components/timeline";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -125,6 +125,7 @@ export default function Home() {
       </div>
       <div id="experience" className="">
         <h1 className="text-2xl font-bold text-center mb-8">Experience</h1>
+        <Timeline />
       </div>
       <div id="projects" className="">
         <h1 className="text-2xl font-bold text-center mb-8">Projects</h1>
