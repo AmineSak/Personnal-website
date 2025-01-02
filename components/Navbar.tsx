@@ -2,9 +2,7 @@
 import ThemeToggle from "./ui/theme-toggle";
 import Link from "next/link";
 
-type Props = {};
-
-const Navbar = (props: Props) => {
+const Navbar = () => {
   return (
     <div className="navbar sticky top-0 z-20 shadow-md rounded-lg mt-10 bg-base-100">
       <div className="navbar-start">

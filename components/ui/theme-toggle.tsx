@@ -1,5 +1,4 @@
-type Props = {};
-const ThemeToggle = (props: Props) => {
+const ThemeToggle = () => {
   return (
     <label className="swap swap-rotate">
       {/* this hidden checkbox controls the state */}
