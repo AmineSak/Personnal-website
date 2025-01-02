@@ -14,6 +14,12 @@ export default function Home() {
   const [response, setResponse] = useState("");
   const [key, setKey] = useState(0);
   const placeholders: string[] = [""];
+  const faqs = [
+    "What's your background?",
+    "What are your hobbies?",
+    "What projects have you worked on?",
+    "What's your favorite programming language?",
+  ];
 
   const handleChange = (e: any) => {
     e.preventDefault();
@@ -22,9 +28,28 @@ export default function Home() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    setUserInput(e.target.value);
 
     try {
+      setIsLoading(true);
+      const res = await fetch("api/ask-ai", {
+        method: "POST",
+        body: JSON.stringify({ question: PromptTemplate(userInput) }),
+      });
+      const data = await res.json();
+      setResponse(data.answer);
+      setKey((prev) => prev + 1);
+    } catch (error) {
+      console.error("Error:", error);
+      setResponse("Sorry, something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleClick = async (faq: string) => {
+    try {
+      setUserInput(faq);
+      console.log(faq);
       setIsLoading(true);
       const res = await fetch("api/ask-ai", {
         method: "POST",
@@ -46,10 +71,7 @@ export default function Home() {
       className="flex-col justify-center
      content-center mx-auto overflow-hidden px-5 sm:px-10 w-full"
     >
-      <div
-        id="home"
-        // className="flex-col justify-center content-center mx-auto overflow-hidden px-5 sm:px-10 w-full"
-      >
+      <div id="home">
         <div className="flex justify-between border-opacity-50 gap-[40px] items-center mt-10">
           <Image
             alt="Profile-avatar"
@@ -78,7 +100,19 @@ export default function Home() {
             onChange={handleChange}
             onSubmit={handleSubmit}
           />
-
+          <div className="mx-auto mt-4 flex-grow justify-center space-x-1 max-w-xl">
+            {faqs.map((faq, index) => (
+              <button
+                className="btn btn-xs btn-active"
+                onClick={() => {
+                  handleClick(faq);
+                }}
+                key={index}
+              >
+                {faq}
+              </button>
+            ))}
+          </div>
           {isLoading && (
             <span className="loading text-primary loading-dots loading-md"></span>
           )}
