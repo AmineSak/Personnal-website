@@ -129,8 +129,6 @@ export default function Home() {
       <div id="projects" className="">
         <h1 className="text-2xl font-bold text-center mb-8">Projects</h1>
       </div>
-
-      <Footer />
     </main>
   );
 }
