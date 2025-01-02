@@ -1,5 +1,5 @@
 import { Project } from "@/lib/types";
-import { Code, ExternalLink, Github } from "lucide-react";
+import { Code, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
