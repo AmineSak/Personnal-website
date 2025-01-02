@@ -72,21 +72,21 @@ export default function Home() {
      content-center mx-auto overflow-hidden px-5 sm:px-10 w-full"
     >
       <div id="home">
-        <div className="flex justify-between border-opacity-50 gap-[40px] items-center mt-10">
+        <div className="flex flex-col sm:flex-row justify-center items-center border-opacity-50 gap-6 sm:gap-8 p-4 sm:p-8 mt-10">
           <Image
             alt="Profile-avatar"
             src={avatar}
-            width={200}
-            height={200}
-            className="card"
+            className="rounded-full w-full max-w-[150px] sm:max-w-[200px] h-auto"
+            priority
           />
-          <p className="text-lg text-left ">
-            Welcome to my personnal website! <br />
+          <p className="text-sm sm:text-base text-center sm:text-left leading-relaxed">
+            Welcome to my personal website! <br />
             How do I find you today? <br />
             I am a computer science student based in France. <br />
-            I'm passionnate about AI and coding.
-            <br /> When I'm not on my laptop, I enjoy doing calisthenics and a
-            small touch of powerlifting
+            I'm passionate about AI and coding.
+            <br />
+            When I'm not on my laptop, I enjoy doing calisthenics and a small
+            touch of powerlifting.
           </p>
         </div>
 
