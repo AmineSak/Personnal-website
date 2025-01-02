@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import avatar from "@/public/assets/images/1.jpg";
+import avatar from "@/public/assets/images/profile_pic.jpg";
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
 import { useState } from "react";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import PromptTemplate from "@/components/prompt-template";
 import Timeline from "@/components/timeline";
+import ProjectCard from "@/components/project-card";
+import { projects } from "@/lib/projects";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -79,7 +81,7 @@ export default function Home() {
             className="rounded-full w-full max-w-[150px] sm:max-w-[200px] h-auto"
             priority
           />
-          <p className="text-sm sm:text-base text-center sm:text-left leading-relaxed">
+          <p className="text-sm font-semibold sm:text-base text-center sm:text-left leading-relaxed">
             Welcome to my personal website! <br />
             How do I find you today? <br />
             I am a computer science student based in France. <br />
@@ -129,6 +131,9 @@ export default function Home() {
       </div>
       <div id="projects" className="">
         <h1 className="text-2xl font-bold text-center mb-8">Projects</h1>
+        {projects.map((project, index) => (
+          <ProjectCard key={index} project={project} />
+        ))}
       </div>
     </main>
   );

@@ -18,8 +18,8 @@ export default function RootLayout({
       <body className="main">
         <Navbar />
         {children}
+        <Footer />
       </body>
-      <Footer />
     </html>
   );
 }

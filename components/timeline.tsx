@@ -129,8 +129,10 @@ export default function Timeline() {
           </svg>
         </div>
         <div className="timeline-start mb-10 md:text-end">
-          <time className="font-mono italic">2015</time>
-          <div className="text-lg font-black">Apple Watch</div>
+          <time className="font-mono italic">2024</time>
+          <div className="text-lg font-black">
+            Luxembourg Institut of Science and Technology
+          </div>
           The Apple Watch is a line of smartwatches produced by Apple Inc. It
           incorporates fitness tracking, health-oriented capabilities, and
           wireless telecommunication, and integrates with iOS and other Apple
