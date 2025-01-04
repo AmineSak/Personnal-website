@@ -20,7 +20,7 @@ export const projects: Project[] = [
     description: "My personal website to showcase my experience and portfolio",
     technologies: ["Next.js", "Hugging Face API"],
     link: "https://www.aminesakouhi.com/",
-    github: "https://github.com/AmineSak/Personna-website",
+    github: "https://github.com/AmineSak/Personnal-website",
     image: website,
     field: "WEB DEV",
   },
