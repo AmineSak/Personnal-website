@@ -136,14 +136,8 @@ export default function Home() {
           Projects
         </h1>
         <div className="grid justify-center grid-cols-1 md:grid-cols-2 gap-4 w-full mb-10">
-          {projects.map((project, index) => (
-            <>
-              <ProjectCard key={index} project={project} />
-              <ProjectCard key={index + 2} project={project} />
-              <ProjectCard key={index + 4} project={project} />
-              <ProjectCard key={index + 9} project={project} />
-              <ProjectCard key={index + 1} project={project} />
-            </>
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </div>
