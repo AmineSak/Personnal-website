@@ -17,10 +17,9 @@ export default function Home() {
   const [key, setKey] = useState(0);
   const placeholders: string[] = [""];
   const faqs = [
-    "What's your background?",
-    "What are your hobbies?",
-    "What projects have you worked on?",
-    "What's your favorite programming language?",
+    "What's my background?",
+    "What are my hobbies?",
+    "What projects have I worked on?",
   ];
 
   const handleChange = (e: any) => {
@@ -50,12 +49,11 @@ export default function Home() {
 
   const handleClick = async (faq: string) => {
     try {
-      setUserInput(faq);
       console.log(faq);
       setIsLoading(true);
       const res = await fetch("api/ask-ai", {
         method: "POST",
-        body: JSON.stringify({ question: PromptTemplate(userInput) }),
+        body: JSON.stringify({ question: PromptTemplate(faq) }),
       });
       const data = await res.json();
       setResponse(data.answer);
