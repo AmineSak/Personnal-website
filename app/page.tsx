@@ -79,39 +79,38 @@ export default function Home() {
             className="rounded-full w-full max-w-[150px] sm:max-w-[200px] h-auto"
             priority
           />
-          <p className="text-sm font-semibold sm:text-base text-center sm:text-left leading-relaxed">
-            Welcome to my personal website! <br />
-            How do I find you today? <br />
-            I am a computer science student based in France. <br />
-            I'm passionate about AI and coding.
-            <br />
-            When I'm not on my laptop, I enjoy doing calisthenics and a small
-            touch of powerlifting.
+          <p className="text-sm text-center font-semibold sm:text-base sm:text-left leading-relaxed">
+            Welcome to my personal website! How do I find you today? I am a
+            computer science student based in France. I'm passionate about AI
+            and coding. When I'm not on my laptop, I enjoy doing calisthenics
+            and a small touch of powerlifting.
           </p>
         </div>
 
         <div className="flex-col mt-8 gap-3 items-center">
-          <h1 className="text-2xl font-bold text-primary text-center mb-8">
+          <h1 className="text-[37px] text-primary text-left">
             {" "}
             Ask AI about me{" "}
           </h1>
-          <PlaceholdersAndVanishInput
-            placeholders={placeholders}
-            onChange={handleChange}
-            onSubmit={handleSubmit}
-          />
-          <div className="mx-auto mt-4 flex-grow justify-center space-x-1 max-w-xl">
-            {faqs.map((faq, index) => (
-              <button
-                className="btn btn-xs btn-active"
-                onClick={() => {
-                  handleClick(faq);
-                }}
-                key={index}
-              >
-                {faq}
-              </button>
-            ))}
+          <div className="mt-3">
+            <PlaceholdersAndVanishInput
+              placeholders={placeholders}
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+            />
+            <div className="mx-auto mt-4 flex-grow justify-center space-x-1 max-w-xl">
+              {faqs.map((faq, index) => (
+                <button
+                  className="btn btn-xs btn-active"
+                  onClick={() => {
+                    handleClick(faq);
+                  }}
+                  key={index}
+                >
+                  {faq}
+                </button>
+              ))}
+            </div>
           </div>
           {isLoading && (
             <span className="loading text-primary loading-dots loading-md"></span>
@@ -123,17 +122,13 @@ export default function Home() {
           />
         </div>
       </div>
-      <div id="experience" className="">
-        <h1 className="text-2xl font-bold text-center text-primary mb-8">
-          Experience
-        </h1>
+      <div id="experience" className="mt-3">
+        <h1 className="text-[37px]  text-left text-primary mt-3">Experience</h1>
         <Timeline />
       </div>
-      <div id="projects" className="">
-        <h1 className="text-2xl font-bold text-primary text-center mb-8">
-          Projects
-        </h1>
-        <div className="grid justify-center grid-cols-1 md:grid-cols-2 gap-4 w-full mb-10">
+      <div id="projects" className="mt-3">
+        <h1 className="text-[37px] text-primary text-left mt-3">Projects</h1>
+        <div className="grid justify-center grid-cols-1 md:grid-cols-2 gap-4 w-full mb-10 mt-3">
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

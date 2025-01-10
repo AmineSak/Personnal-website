@@ -2,7 +2,7 @@ import Image from "next/image";
 import list from "@/public/assets/images/list_image.jpeg";
 export default function Timeline() {
   return (
-    <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+    <ul className="timeline timeline-snap-icon max-md:timeline-compact mt-3 timeline-vertical">
       <li>
         <hr />
         <div className="timeline-middle">
