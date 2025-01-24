@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import avatar from "@/public/assets/images/profile_pic.jpg";
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
