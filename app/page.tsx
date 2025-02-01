@@ -48,7 +48,6 @@ export default function Home() {
 
   const handleClick = async (faq: string) => {
     try {
-      console.log(faq);
       setIsLoading(true);
       const res = await fetch("api/ask-ai", {
         method: "POST",

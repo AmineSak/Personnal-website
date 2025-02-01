@@ -1,4 +1,3 @@
-import { HfInference } from "@huggingface/inference";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -13,28 +12,27 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
-    const client = new HfInference(process.env.HF_ACCESS_TOKEN);
-    const model = "microsoft/Phi-3-mini-4k-instruct";
-    let out = "";
-
-    const stream = client.chatCompletionStream({
-      model,
-      messages: [
-        {
-          role: "user",
-          content: question,
-        },
-      ],
-      max_tokens: 500,
+    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.OPEN_ROUTER_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "meta-llama/llama-3.2-3b-instruct:free",
+        messages: [
+          {
+            role: "user",
+            content: question,
+          },
+        ],
+      }),
     });
+    const completion = await res.json();
+    const answer = completion.choices[0].message.content;
+    console.log(answer);
 
-    for await (const chunk of stream) {
-      if (chunk.choices && chunk.choices.length > 0) {
-        const newContent = chunk.choices[0].delta.content;
-        out += newContent;
-      }
-    }
-    return NextResponse.json({ answer: out }, { status: 200 });
+    return NextResponse.json({ answer }, { status: 200 });
   } catch (error) {
     console.error(error);
 
