@@ -1,6 +1,7 @@
 import { Project } from "./types";
 import codeflow_pic from "@/public/assets/images/codeflow_pic.png";
 import website from "@/public/assets/images/website.png";
+import maze from "@/public/assets/images/maze.png";
 
 export const projects: Project[] = [
   {
@@ -23,5 +24,15 @@ export const projects: Project[] = [
     github: "https://github.com/AmineSak/Personnal-website",
     image: website,
     field: "WEB DEV",
+  },
+  {
+    id: 3,
+    title: "Maze Runner",
+    description: "Training an AI agent to solve mazes efficiently",
+    technologies: ["Python", "Pytorch"],
+    link: "https://github.com/AmineSak/MAZE-RUNN3R",
+    github: "https://github.com/AmineSak/MAZE-RUNN3R",
+    image: maze,
+    field: "Reinforcement Learning",
   },
 ];
